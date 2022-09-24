@@ -7,7 +7,9 @@
       tags:
       - node
       - zsh
+      - install
   tasks:
   - include: default-tasks/zsh.yml
   - include: default-tasks/node.yml
-
+  - include: default-tasks/productivity.yml
+  - include: default-tasks/dotfiles.yml
