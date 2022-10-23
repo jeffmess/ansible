@@ -1,4 +1,7 @@
 - hosts: localhost
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
   become: true
   pre_tasks:
     - name: Update cache
@@ -9,7 +12,11 @@
       - zsh
       - install
   tasks:
-  - include: default-tasks/zsh.yml
-  - include: default-tasks/node.yml
-  - include: default-tasks/productivity.yml
-  - include: default-tasks/dotfiles.yml
+    - include: default-tasks/ssh.yml
+    - include: default-tasks/git.yml
+    - include: default-tasks/core.yml
+    - include: default-tasks/zsh.yml
+    - include: default-tasks/node.yml
+    - include: default-tasks/productivity.yml
+    - include: default-tasks/nvim.yml
+    - include: default-tasks/dotfiles.yml

@@ -5,5 +5,5 @@ Ansible setup
 ```sh
 docker build -t ansible .
 docker run --rm -it ansible bash
-ansible-playbook default.yml
+ansible-playbook default.yml --ask-vault-pass
 ```

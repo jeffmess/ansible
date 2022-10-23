@@ -1,0 +1,19 @@
+- name: Git setup
+  git_config:
+    name: user.email
+    scope: global
+    value: "jeffmess@gmail.com"
+  tags:
+    - git
+- name: Git config
+  git_config:
+    name: user.name
+    scope: global
+    value: "Jeffrey van Aswegen"
+  tags:
+    - git
+- name: Git editor
+  git_config:
+    name: core.editor
+    scope: global
+    value: nvim
