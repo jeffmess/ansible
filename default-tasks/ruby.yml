@@ -1,0 +1,71 @@
+- name: install frum / ruby package manager
+  community.general.cargo:
+    name: frum
+  tags:
+    - rust
+- name: initialise
+  lineinfile:
+    path: "~/.zshrc"
+    line: eval "$(frum init)"
+  tags:
+    - ruby
+
+- name: download openssl 1.1.1 for ruby 2.7.6
+  ansible.builtin.get_url:
+    url: 'https://www.openssl.org/source/openssl-1.1.1q.tar.gz'
+    dest: '~/Downloads'
+  tags:
+    - ruby
+    - ruby-2
+
+- name: extract openssl 1.1.1
+  ansible.builtin.unarchive:
+    src: '~/Downloads/openssl-1.1.1q.tar.gz'
+    dest: '~/Downloads/'
+  tags:
+    - ruby-2
+
+- name: configure openssl
+  shell:
+    cmd: './config --prefix=/opt/openssl-1.1.1q --openssldir=/opt/openssl-1.1.1q shared zlib'
+    chdir: '~/Downloads/openssl-1.1.1q'
+  tags:
+    - ruby-2
+
+- name: openssl make test
+  make:
+    target: test
+    chdir: '~/Downloads/openssl-1.1.1q'
+  tags:
+    - ruby-2
+
+- name: openssl make install
+  become: true
+  make:
+    chdir: '~/Downloads/openssl-1.1.1q'
+    target: install
+  tags:
+    - ruby-2
+
+- name: prepare certs
+  become: true
+  ansible.builtin.file:
+    path: '/opt/openssl-1.1.1q/certs'
+    state: absent
+  tags:
+    - ruby-2
+
+- name: symlink openssl
+  become: true
+  ansible.builtin.file:
+    src: '/opt/openssl-1.1.1q/certs'
+    dest: '/etc/ssl/certs'
+    state: link
+  tags:
+    - ruby-2
+
+- name: install 2.7.6
+  shell: sh -c "$(frum install 2.7.6)"
+  tags:
+    - ruby
+

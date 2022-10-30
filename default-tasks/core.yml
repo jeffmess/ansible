@@ -24,6 +24,15 @@
     - install
     - core
 
+- name: Install System Packages 4 (ruby 2.7.6)
+  become: true
+  apt:
+    name: ["checkinstall", "zlib1g-dev"]
+  tags:
+    - install
+    - core
+    - ruby
+
 - name: Install Clang
   become: true
   apt:
