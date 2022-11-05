@@ -25,3 +25,4 @@
     - include: default-tasks/nvim.yml
     - include: default-tasks/dotfiles.yml
     - include: default-tasks/ruby.yml
+    - include: default-tasks/1password.yml

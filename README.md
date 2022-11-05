@@ -11,5 +11,5 @@ ansible-playbook default.yml --ask-vault-pass
 ### Run in pop-os
 
 ```sh
-ansible-playbook default.yml --ask-vault-pass --ask-pass
+ansible-playbook default.yml --ask-vault-pass --ask-become-pass
 ```
