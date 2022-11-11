@@ -28,6 +28,6 @@ ansible-playbook default.yml --ask-vault-pass --ask-become-pass
 
 4. Run ansible-galaxy install -r requirements.yml inside this directory to install required Ansible roles.
 
-5. Run ansible-playbook mac.yml --ask-become-pass inside this directory. Enter your macOS account password when prompted for the 'BECOME' password.
+5. Run ansible-playbook mac.yml -i inventory --ask-become-pass inside this directory. Enter your macOS account password when prompted for the 'BECOME' password.
 
 

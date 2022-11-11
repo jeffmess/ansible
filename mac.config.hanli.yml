@@ -6,7 +6,7 @@ configure_terminal: true
 configure_osx: true
 
 # Set to 'true' to configure the Dock via dockutil.
-configure_dock: false
+configure_dock: true
 dockitems_remove:
   - Launchpad
   - TV
@@ -22,10 +22,21 @@ dockitems_remove:
   - News
   - Keynote
   - Numbers
-dockitems_persist: []
-# - name: "Sublime Text"
-#   path: "/Applications/Sublime Text.app/"
-#   pos: 5
+  - Messages
+  - Safari
+dockitems_persist:
+  - name: "Firefox"
+    path: "/Applications/Firefox.app/"
+    pos: 1
+  - name: "1Password.app"
+    path: "/Applications/1Password.app/"
+    pos: 2
+  - name: "Spotify"
+    path: "/Applications/Spotify.app/"
+    pos: 3
+  - name: "VSCode"
+    path: "/Applications/Visual Studio Code.app/"
+    pos: 4
 
 configure_sudoers: false
 sudoers_custom_config: ''
