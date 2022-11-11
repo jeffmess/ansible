@@ -5,7 +5,7 @@
     - name: Include playbook configuration.
       include_vars: "{{ item }}"
       with_fileglob:
-        - "{{ playbook_dir }}/config.yml"
+        - "{{ playbook_dir }}/mac.config.hanli.yml"
       tags: ['always']
 
   roles:
