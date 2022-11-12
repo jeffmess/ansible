@@ -37,6 +37,9 @@ dockitems_persist:
   - name: "VSCode"
     path: "/Applications/Visual Studio Code.app/"
     pos: 4
+  - name: "Telegram"
+    path: "/Applications/Telegram.app"
+    pos: 5
 
 configure_sudoers: false
 sudoers_custom_config: ''
@@ -46,6 +49,7 @@ sudoers_custom_config: ''
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
 homebrew_installed_packages:
+  - asdf
   # - ansible # Installed via Pip.
 
 homebrew_taps:
@@ -57,6 +61,7 @@ homebrew_cask_apps:
   - firefox
   - 1password
   - spotify
+  - telegram
   - visual-studio-code
 
 # See `geerlingguy.mas` role documentation for usage instructions.
