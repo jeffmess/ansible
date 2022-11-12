@@ -1,0 +1,9 @@
+- name: Add asdf to path
+  shell: sh -c 'echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshrc'
+  tags:
+    - zsh
+ 
+- name: Add asdf autocomplete to path
+  shell: sh -c 'echo -e "\n. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"  >> ~/.zshrc'
+  tags:
+    - zsh
