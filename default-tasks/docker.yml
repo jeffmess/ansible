@@ -36,3 +36,12 @@
         log-opts:
           max-size: "100m"
       docker_apt_repository: deb https://download.docker.com/linux/ubuntu focal stable
+
+- name: adding existing user '{{ user }}' to group docker
+  user:
+    name: '{{ user }}'
+    groups: docker
+    append: yes
+  tags:
+    - docker
+    - install
