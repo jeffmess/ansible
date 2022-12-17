@@ -1,0 +1,24 @@
+- name: Download Etcher
+  get_url:
+    url: https://github.com/balena-io/etcher/releases/download/v1.10.0/balena-etcher_1.10.0_amd64.deb 
+    dest: /tmp/etcher.deb
+  tags:
+    - install
+    - etcher
+
+- name: Uninstall existing etcher
+  become: true
+  apt:
+    name: etcher
+    state: absent
+  tags:
+    - uninstall
+    - etcher 
+
+- name: Install etcher .deb package
+  become: true
+  apt:
+    deb: /tmp/etcher.deb
+  tags:
+    - install
+    - etcher

@@ -1,5 +1,9 @@
 Ansible setup
 
+# Todo
+
+Document processes better and clean up the code
+
 ### Run in docker
 
 ```sh
@@ -12,6 +16,9 @@ ansible-playbook default.yml --ask-vault-pass
 
 ```sh
 ansible-playbook default.yml --ask-vault-pass --ask-become-pass
+
+ansible-galaxy install geerlingguy.docker
+ansible-playbook tasks/docker.yml --ask-become-pass
 ```
 
 ### Run in mac-os

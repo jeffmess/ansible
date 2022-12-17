@@ -27,3 +27,4 @@
     - include: default-tasks/ruby.yml
     - include: default-tasks/1password.yml
     - include: default-tasks/telecommunications.yml
+    - include: default-tasks/etcher.yml

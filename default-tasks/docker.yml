@@ -1,0 +1,38 @@
+---
+- hosts: localhost
+  become: true
+  tags:
+    - docker
+    - install
+
+  # Only needed if you want to build docker images on the remote machine
+  # vars:
+  #   pip_install_packages:
+  #     - name: docker
+
+  roles:
+    - role: geerlingguy.docker
+      # Main params
+      docker_edition: 'ce'
+      docker_compose_version: "1.29.1"
+      docker_apt_gpg_key: "https://download.docker.com/linux/ubuntu/gpg"
+      docker_apt_repository: "deb https://download.docker.com/linux/ubuntu jammy stable"
+      docker_packages:
+          - "docker-{{ docker_edition }}"
+          - "docker-{{ docker_edition }}-cli"
+          - "docker-{{ docker_edition }}-rootless-extras"
+      docker_packages_state: present
+      # Additional params
+      docker_install_compose_plugin: false
+      docker_compose_package: docker-compose-plugin
+      docker_compose_package_state: present
+      # A list of users who will be added to the docker group.
+      docker_users:
+        - "{{ ansible_user_id }}"
+      docker_daemon_options:
+        # Custom dockerd options can be configured through this dictionary representing the json file /etc/docker/daemon.json
+        # Added: overlay2 is the new recommended driver: https://docs.docker.com/storage/storagedriver/select-storage-driver
+        storage-driver: "overlay2"
+        log-opts:
+          max-size: "100m"
+      docker_apt_repository: deb https://download.docker.com/linux/ubuntu focal stable
