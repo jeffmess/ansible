@@ -41,3 +41,12 @@
     - install
     - neovim
     - core
+
+- name: Install Postres Client
+  become: true
+  apt:
+    name: ["postgresql-client"]
+  tags:
+    - install
+    - core
+    - psql

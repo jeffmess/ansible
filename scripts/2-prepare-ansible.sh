@@ -21,9 +21,15 @@ install_pip_packages() {
     eval "pip3 install docker-compose"
 }
 
+install_galaxy() {
+    eval "ansible-galaxy install geerlingguy.docker"
+    eval "ansible-galaxy collection install community.docker"
+}
+
 echo "prepare ansible..."
 # install_venv
 # make_venv_dir
 # this should be requirements.txt
-install_pip_packages
+# install_pip_packages
+install_galaxy
 echo "done..."
