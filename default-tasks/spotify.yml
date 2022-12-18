@@ -1,0 +1,22 @@
+- name: Download spotify keys
+  become: true
+  shell: curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -
+  tags:
+    - spotify
+    - install
+
+- name: Configure Spotify
+  become: true
+  shell: echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+  tags:
+    - install
+    - spotify 
+
+- name: Update repositories cache and install "spotify" package
+  become: true
+  apt:
+    name: spotify-client
+    update_cache: yes
+  tags:
+    - install
+    - spotify 

@@ -1,7 +1,8 @@
-- name: install telegram 
+- name: install telegram/discord 
   become: true
   apt:
-    name: ["telegram-desktop"]
+    name: ["telegram-desktop", "discord"]
   tags:
     - install
     - telegram
+    - discord
