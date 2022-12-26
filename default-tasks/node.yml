@@ -10,7 +10,8 @@
     global: true
   tags:
   - node
-- name: n 17.1
-  shell: n 17.1
+- name: n 19.3.0
+  become: true
+  shell: n 19.3.0
   tags:
   - node
