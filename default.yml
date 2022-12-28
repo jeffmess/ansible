@@ -20,6 +20,7 @@
     - include: default-tasks/zsh.yml
     - include: default-tasks/rust.yml
     - include: default-tasks/node.yml
+    - include: default-tasks/pnpm.yml
     - include: default-tasks/npm-packages.yml
     - include: default-tasks/productivity.yml
     - include: default-tasks/nvim.yml

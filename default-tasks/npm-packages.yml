@@ -33,3 +33,11 @@
   tags:
     - install
     - node
+- name: Install pnpm
+  become: true
+  npm:
+    name: pnpm
+    global: yes
+  tags:
+    - install
+    - pnpm
