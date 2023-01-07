@@ -14,10 +14,7 @@ dockitems_remove:
   - Maps
   - FaceTime
   - Calendar
-  - Contacts
-  - Reminders
-  - Notes
-  - Music
+  - Contacts - Reminders - Notes - Music
   - News
   - Keynote
   - Numbers
@@ -27,12 +24,15 @@ dockitems_persist:
   - name: "Firefox"
     path: "/Applications/Firefox.app/"
     pos: 1
-  - name: "1Password.app"
+  - name: "1Password"
     path: "/Applications/1Password.app/"
     pos: 2
   - name: "Spotify"
     path: "/Applications/Spotify.app/"
     pos: 3
+  - name: "iTerm2"
+    path: "/Applications/iTerm.app/"
+    pos: 4
   - name: "Telegram"
     path: "/Applications/Telegram.app"
     pos: 5
@@ -46,7 +46,14 @@ sudoers_custom_config: ''
 
 homebrew_installed_packages:
   - asdf
-  # - ansible # Installed via Pip.
+  - ninja
+  - libtool
+  - cmake
+  - pkg-config
+  - gettext
+  - tmux
+  - gnupg
+  - stow
 
 homebrew_taps:
   - homebrew/core
@@ -61,6 +68,8 @@ homebrew_cask_apps:
   - handbrake
   - slack
   - postman
+  - iterm2
+  - postgres-unofficial
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []

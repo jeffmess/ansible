@@ -1,5 +1,8 @@
 ---
 - hosts: all
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
 
   pre_tasks:
     - name: Include playbook configuration.
@@ -23,3 +26,7 @@
       when: configure_dock
       tags: ['dock']
     - include: mac-tasks/zsh.yml
+    - include: default-tasks/nvim.yml
+    - include: mac-tasks/dotfiles.yml
+    - include: default-tasks/zsh.yml
+    - include: default-tasks/ssh.yml
