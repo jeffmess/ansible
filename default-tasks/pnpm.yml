@@ -1,0 +1,26 @@
+- name: Download pnpm installer
+  get_url: 
+    url: https://get.pnpm.io/install.sh 
+    dest: /tmp/pnpm-installer.sh
+    mode: '0755'
+  tags:
+    - install
+    - node
+    - pnpm
+    
+- name: Execute the pnpm-installer.sh
+  become: true
+  shell: /tmp/pnpm-installer.sh
+  tags:
+    - install
+    - node
+    - pnpm
+
+- name: Remove the pnpm-installer.sh
+  file: 
+    path: /tmp/pnpm-installer.sh 
+    state: absent
+  tags:
+    - install
+    - node
+    - pnpm

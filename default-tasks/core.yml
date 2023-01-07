@@ -59,3 +59,12 @@
     - install
     - core
     - tauri
+
+- name: Install misc sound and other Packages
+  become: true
+  apt:
+    name: ["libasound2-dev", "libx11-dev", "libudev-dev"]
+  tags:
+    - install
+    - core
+    - bevy
