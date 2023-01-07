@@ -1,6 +1,7 @@
 ---
 roles:
   - name: elliotweiser.osx-command-line-tools
+  - name: osx_provisioner.asdf
 
 collections:
   - name: geerlingguy.mac

@@ -30,3 +30,6 @@
     - include: mac-tasks/dotfiles.yml
     - include: default-tasks/zsh.yml
     - include: default-tasks/ssh.yml
+    - include: mac-tasks/asdf.yml
+    - include: default-tasks/npm-packages.yml
+    - include: default-tasks/rust.yml

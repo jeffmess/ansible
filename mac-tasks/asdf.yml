@@ -1,0 +1,45 @@
+- name: "Touch toolversions"
+  copy:
+    content: ""
+    dest: "{{ lookup('env', 'HOME') }}/.tool-versions"
+    force: no
+  tags:
+    - asdf
+    - install
+
+- name: "Add asdf to path"
+  shell: |
+    echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshrc
+  tags:
+    - asdf
+    - install
+
+- name: "Install asdf plugins"
+  shell:
+    asdf plugin-add {{ item }} || exit 0
+  with_items:
+    - ruby
+    - nodejs
+  tags:
+    - asdf
+    - install
+
+- name: "Install Default Ruby"
+  shell: |
+    asdf install ruby 3.1.3
+    asdf global ruby 3.1.3
+  tags:
+    - asdf
+    - install
+
+- name: "Install Default Node"
+  shell: |
+    source ~/.zshrc
+    asdf install nodejs 19.3.0
+    asdf global nodejs 19.3.0
+    node install npm
+    npm install yarn
+  tags:
+    - asdf
+    - install
+    
